@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Espléndida | Tartas Artesanales por encargo en El Ejido, Almería</title>
+    <meta name="description" content="Tartas artesanales personalizadas para bodas, bautizos, comuniones y cumpleaños en El Ejido (Almería). Encargos en el Poniente de Almería y Almería capital. Pide tu presupuesto por WhatsApp.">
+    <meta name="theme-color" content="#DB2777">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="La Espléndida | Tartas Artesanales por encargo">
+    <meta property="og:description" content="Tartas personalizadas para todo tipo de celebraciones. El Ejido, Poniente de Almería y Almería capital.">
+    <meta property="og:image" content="https://i.imgur.com/JX5djgg.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            50: '#FFF5F7',
+                            100: '#FCE7F3',
+                            200: '#FBCFE8',
+                            300: '#F472B6',
+                            500: '#DB2777',
+                            600: '#BE185D',
+                            cream: '#FFFDF9',
+                            chocolate: '#4A2E2B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-pattern {
+            background-color: #FFF5F7;
+            background-image: radial-gradient(#F472B6 0.75px, transparent 0.75px), radial-gradient(#F472B6 0.75px, #FFF5F7 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+    </style>
+</head>
+<body class="bg-pastel-cream text-gray-800 font-sans antialiased selection:bg-pastel-200 selection:text-pastel-600">
+
+    <!-- NAVBAR FIJA -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-pastel-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-full bg-pastel-50 flex items-center justify-center overflow-hidden border border-pastel-200 shadow-sm">
+                        <img src="https://i.imgur.com/2Zwz39w.png" alt="Logo La Espléndida" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold text-pastel-600 block leading-none">La Espléndida</span>
+                        <span class="text-[10px] tracking-widest text-gray-500 uppercase font-medium">Tartas de Autor & Eventos</span>
+                    </div>
+                </a>
+
+                <!-- Nav Desktop -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-gray-600 text-sm">
+                    <a href="#catalogo" class="hover:text-pastel-500 transition-colors">Catálogo de Tartas</a>
+                    <a href="#sabores" class="hover:text-pastel-500 transition-colors">Sabores & Rellenos</a>
+                    <a href="#sobre-mi" class="hover:text-pastel-500 transition-colors">Sobre mí</a>
+                    <a href="#historia" class="hover:text-pastel-500 transition-colors">Nuestra Filosofía</a>
+                    <a href="#encargos" class="hover:text-pastel-500 transition-colors">Presupuesto</a>
+                    <a href="#contacto" class="hover:text-pastel-500 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- CTA Button Header (Sin icono) -->
+                <div class="hidden md:flex items-center">
+                    <a href="#encargos" class="inline-flex items-center bg-pastel-500 hover:bg-pastel-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md shadow-pastel-200 hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <span>Pedir Presupuesto</span>
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" aria-label="Abrir menú" class="text-gray-600 hover:text-pastel-500 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-pastel-100 px-4 pt-2 pb-6 space-y-3">
+            <a href="#catalogo" class="mobile-link block py-2 text-gray-600 font-medium hover:text-pastel-500 border-b border-gray-50">Catálogo de Tartas</a>
+            <a href="#sabores" class="mobile-link block py-2 text-gray-600 font-medium hover:text-pastel-500 border-b border-gray-50">Sabores & Rellenos</a>
+            <a href="#sobre-mi" class="mobile-link block py-2 text-gray-600 font-medium hover:text-pastel-500 border-b border-gray-50">Sobre mí</a>
+            <a href="#historia" class="mobile-link block py-2 text-gray-600 font-medium hover:text-pastel-500 border-b border-gray-50">Nuestra Filosofía</a>
+            <a href="#encargos" class="mobile-link block py-2 text-gray-600 font-medium hover:text-pastel-500 border-b border-gray-50">Presupuesto</a>
+            <a href="#contacto" class="mobile-link block py-2 text-gray-600 font-medium hover:text-pastel-500 border-b border-gray-50">Contacto</a>
+            <a href="#encargos" class="mobile-link w-full text-center mt-4 inline-flex items-center justify-center bg-pastel-500 text-white px-5 py-3 rounded-full text-sm font-semibold shadow-md">
+                <span>Pedir Presupuesto por WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- SECCIÓN HERO -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 hero-pattern overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                <!-- Columna Texto -->
+                <div class="text-center md:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pastel-100 text-pastel-600 text-xs font-semibold tracking-wide uppercase shadow-sm">
+                        <i class="fa-solid fa-cake-candles text-pastel-500"></i> Tartas Personalizadas para Todo Tipo de Eventos
+                    </div>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                        La tarta perfecta creada a medida para tus <span class="italic text-pastel-500 font-normal">celebraciones</span>.
+                    </h1>
+                    <p class="text-gray-600 text-base sm:text-lg max-w-xl mx-auto md:mx-0 font-normal leading-relaxed">
+                        Bodas, bautizos, comuniones, cumpleaños y eventos especiales en El Ejido, Poniente de Almería y Almería capital. Diseñamos y horneamos artesanalmente la tarta de tus sueños ajustándonos a tus gustos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
+                        <a href="#catalogo" class="w-full sm:w-auto inline-flex items-center justify-center bg-pastel-500 hover:bg-pastel-600 text-white font-semibold px-8 py-3.5 rounded-full shadow-lg shadow-pastel-200 transition-all transform hover:-translate-y-0.5">
+                            Ver Galería de Tartas
+                        </a>
+                        <a href="#encargos" class="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-pastel-50 text-pastel-600 border border-pastel-200 font-semibold px-8 py-3.5 rounded-full transition-all">
+                            Consultar Presupuesto
+                        </a>
+                    </div>
+                    <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 text-xs text-gray-500 font-medium">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-pastel-500"></i> Diseños Exclusivos
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-pastel-500"></i> Ingredientes 100% Frescos
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-pastel-500"></i> El Ejido & Almería
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Imagen Destacada -->
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 w-72 h-72 bg-pastel-200 rounded-full blur-3xl opacity-50"></div>
+                    <div class="relative bg-white p-3.5 rounded-3xl shadow-xl border border-pastel-100 flex justify-center items-center">
+                        <img src="https://i.imgur.com/JX5djgg.jpeg" 
+                             alt="Tarta artesanal de La Espléndida" 
+                             class="rounded-2xl w-full h-[450px] object-contain bg-pastel-50/50 p-2">
+
+                        <div class="absolute -bottom-5 right-6 bg-white p-4 rounded-2xl shadow-lg border border-pastel-100 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-pastel-100 flex items-center justify-center text-pastel-500">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">Repostera Creativa</p>
+                                <p class="text-sm font-bold text-gray-800">Elaboración bajo pedido</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN GALERÍA DE TARTAS -->
+    <section id="catalogo" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">Nuestra Galería de Trabajos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Catálogo de Creaciones</h2>
+                <p class="text-gray-500 mt-3">Muestra de nuestros diseños artesanales hechos con dedicación y detalle.</p>
+            </div>
+
+            <!-- Grid de Tarjetas (Cards 1, 3, 5, 6, 7 y 8) -->
+            <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1 -->
+                <div class="product-card bg-pastel-50/60 rounded-2xl p-4 border border-pastel-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="w-full h-80 bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-pastel-100">
+                        <img src="https://i.imgur.com/JX5djgg.jpeg" alt="Tarta 1" loading="lazy" class="max-h-full max-w-full object-contain rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="product-card bg-pastel-50/60 rounded-2xl p-4 border border-pastel-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="w-full h-80 bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-pastel-100">
+                        <img src="https://i.imgur.com/hdAiGDv.jpeg" alt="Tarta 3" loading="lazy" class="max-h-full max-w-full object-contain rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="product-card bg-pastel-50/60 rounded-2xl p-4 border border-pastel-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="w-full h-80 bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-pastel-100">
+                        <img src="https://i.imgur.com/BWUFcQB.jpeg" alt="Tarta 5" loading="lazy" class="max-h-full max-w-full object-contain rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="product-card bg-pastel-50/60 rounded-2xl p-4 border border-pastel-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="w-full h-80 bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-pastel-100">
+                        <img src="https://i.imgur.com/z8yq3Eb.jpeg" alt="Tarta 6" loading="lazy" class="max-h-full max-w-full object-contain rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="product-card bg-pastel-50/60 rounded-2xl p-4 border border-pastel-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="w-full h-80 bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-pastel-100">
+                        <img src="https://i.imgur.com/Omztihn.jpeg" alt="Tarta 7" loading="lazy" class="max-h-full max-w-full object-contain rounded-lg">
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="product-card bg-pastel-50/60 rounded-2xl p-4 border border-pastel-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="w-full h-80 bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-pastel-100">
+                        <img src="https://i.imgur.com/KM8pDtn.jpeg" alt="Tarta 8" loading="lazy" class="max-h-full max-w-full object-contain rounded-lg">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BLOQUE: ¿Quieres ver más tartas? Síguenos en redes -->
+            <div class="mt-16 bg-gradient-to-r from-pastel-50 via-pink-50 to-pastel-50 rounded-3xl p-8 sm:p-12 border border-pastel-200 text-center shadow-sm">
+                <div class="w-14 h-14 rounded-full bg-pastel-100 text-pastel-500 flex items-center justify-center mx-auto mb-4 text-2xl shadow-sm">
+                    <i class="fa-solid fa-camera-retro"></i>
+                </div>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mb-3">¿Quieres ver más tartas y diseños únicos?</h3>
+                <p class="text-gray-600 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+                    Publicamos fotos y vídeos nuevos de cada evento en nuestras redes sociales. ¡Síguenos para no perderte ninguna creación y descubrir todo lo que podemos hacer!
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="https://www.instagram.com/misdulcespararegalar?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white px-7 py-3.5 rounded-full text-sm font-semibold shadow-md transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                        <span>Ver más en Instagram</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@misdulcespararegalar?_r=1&_t=ZN-9BIP9FxOYyZ" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-gray-900 hover:bg-gray-800 text-white px-7 py-3.5 rounded-full text-sm font-semibold shadow-md transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-tiktok text-lg"></i>
+                        <span>Ver vídeos en TikTok</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN SABORES Y COMBINACIONES -->
+    <section id="sabores" class="py-20 bg-pastel-50 border-y border-pastel-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">A la Carta</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 mt-2">Un mundo de sabores para tu tarta</h2>
+                <p class="text-gray-500 mt-3">Elige la base, combina tus rellenos favoritos o déjate inspirar por nuestras tartas especiales y recetas de la casa.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                <!-- 1. Bizcochos -->
+                <article class="bg-white p-7 rounded-3xl shadow-sm border border-pastel-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-pastel-100 flex items-center justify-center text-pastel-500 mb-5">
+                        <i class="fa-solid fa-wheat-awn text-2xl"></i>
+                    </div>
+                    <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">La base</span>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mt-1 mb-4">Bizcochos</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Vainilla clásica</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Chocolate intenso</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Red Velvet</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Limón y ralladura natural</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Zanahoria con especias</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Almendra suave</li>
+                    </ul>
+                </article>
+
+                <!-- 2. Rellenos -->
+                <article class="bg-white p-7 rounded-3xl shadow-sm border border-pastel-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-pastel-100 flex items-center justify-center text-pastel-500 mb-5">
+                        <i class="fa-solid fa-bowl-food text-2xl"></i>
+                    </div>
+                    <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">El corazón</span>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mt-1 mb-4">Rellenos y cremas</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Crema de limón</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Crema pastelera</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Ganache de chocolate negro o blanco</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Nata montada</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Crema de mascarpone</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Dulce de leche y toffee</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Frutos rojos</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Pistacho</li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i> Crema de avellanas</li>
+                    </ul>
+                </article>
+
+                <!-- 3. Tartas especiales -->
+                <article class="bg-white p-7 rounded-3xl shadow-sm border border-pastel-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-pastel-100 flex items-center justify-center text-pastel-500 mb-5">
+                        <i class="fa-solid fa-cake-candles text-2xl"></i>
+                    </div>
+                    <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">Clásicos irresistibles</span>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mt-1 mb-4">Tartas especiales</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i><span><strong class="text-gray-800">Carrot Cake</strong><span class="block text-xs text-gray-500 mt-0.5">Zanahoria, especias y crema de queso</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i><span><strong class="text-gray-800">Red Velvet</strong><span class="block text-xs text-gray-500 mt-0.5">Bizcocho aterciopelado y frosting suave</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i><span><strong class="text-gray-800">Selva Negra</strong><span class="block text-xs text-gray-500 mt-0.5">Chocolate, nata y cereza</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i><span><strong class="text-gray-800">Tarta Sacher</strong><span class="block text-xs text-gray-500 mt-0.5">Chocolate y confitura de albaricoque</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i><span><strong class="text-gray-800">Tres chocolates</strong><span class="block text-xs text-gray-500 mt-0.5">Capas de chocolate blanco, con leche y negro</span></span></li>
+                        <li class="flex gap-2"><i class="fa-solid fa-circle-dot text-[9px] text-pastel-500 mt-1.5"></i><span><strong class="text-gray-800">Cheesecake</strong><span class="block text-xs text-gray-500 mt-0.5">Queso cremoso y frutos rojos</span></span></li>
+                    </ul>
+                </article>
+
+                <!-- 4. Tartas de la casa -->
+                <article class="bg-white p-7 rounded-3xl shadow-sm border border-pastel-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-2xl bg-pastel-100 flex items-center justify-center text-pastel-500 mb-5">
+                        <i class="fa-solid fa-heart text-2xl"></i>
+                    </div>
+                    <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">Nuestras propuestas</span>
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mt-1 mb-4">Tartas de la casa</h3>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li><strong class="text-gray-800">Frambuesa, pistacho y chocolate blanco</strong><span class="block text-xs text-gray-500 mt-1">Dulce, afrutada y con un toque tostado</span></li>
+                        <li><strong class="text-gray-800">Chocolate y limón</strong><span class="block text-xs text-gray-500 mt-1">Intensidad de cacao con un punto cítrico</span></li>
+                        <li><strong class="text-gray-800">Vainilla, fresas y nata</strong><span class="block text-xs text-gray-500 mt-1">Una combinación fresca y clásica</span></li>
+                        <li><strong class="text-gray-800">Chocolate, caramelo y avellana</strong><span class="block text-xs text-gray-500 mt-1">Cremosa, crujiente y golosa</span></li>
+                        <li><strong class="text-gray-800">Limón y merengue</strong><span class="block text-xs text-gray-500 mt-1">Equilibrio entre acidez y dulzor</span></li>
+                        <li><strong class="text-gray-800">Coco y mango</strong><span class="block text-xs text-gray-500 mt-1">Una opción tropical y ligera</span></li>
+                    </ul>
+                </article>
+            </div>
+
+            <p class="text-center text-xs text-gray-500 mt-8">Las combinaciones son orientativas y pueden adaptarse a tus preferencias. Consulta disponibilidad, alérgenos y posibles cambios de sabor al realizar tu encargo.</p>
+            
+            <div class="text-center mt-6">
+                <a href="#encargos" class="inline-flex items-center justify-center bg-pastel-500 hover:bg-pastel-600 text-white font-semibold px-7 py-3 rounded-full shadow-md shadow-pastel-200 transition-all">
+                    Diseñar mi combinación
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN NUEVA: SOBRE MÍ (VIRGINIA) -->
+    <section id="sobre-mi" class="py-20 bg-pastel-50/50 border-b border-pastel-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Foto personal -->
+                <div class="relative order-2 md:order-1 flex justify-center">
+                    <div class="absolute -top-4 -left-4 w-72 h-72 bg-pastel-200 rounded-full blur-3xl opacity-40"></div>
+                    <div class="relative bg-white p-3 rounded-3xl shadow-xl border border-pastel-100 w-full max-w-md">
+                        <img src="https://imgur.com/Fh8qeZj.jpeg" alt="Virginia - La Espléndida" class="rounded-2xl w-full h-[420px] object-cover bg-pastel-50 shadow-inner">
+                        <div class="absolute -bottom-4 right-6 bg-pastel-500 text-white px-5 py-2.5 rounded-2xl shadow-lg border border-white/20 flex items-center gap-2">
+                            <i class="fa-solid fa-heart text-white"></i>
+                            <span class="text-xs font-bold tracking-wider uppercase">Virginia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto personal -->
+                <div class="space-y-6 order-1 md:order-2">
+                    <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">Conóceme un poco más</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+                        ¡Hola, soy Virginia!
+                    </h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed font-normal">
+                        <p>
+                            Desde pequeña me ha gustado la repostería y siempre he disfrutado preparando dulces para compartir con los demás. Lo que empezó como una afición, poco a poco se convirtió en una ilusión: crear tartas únicas y poner un poquito de mí en cada una.
+                        </p>
+                        <p>
+                            Hoy, gracias a <strong class="text-pastel-600 font-semibold">La Espléndida</strong>, he podido dar el paso de convertir esa pasión en mi propio proyecto. Me hace muchísima ilusión formar parte de vuestros momentos especiales y espero endulzar muchos más.
+                        </p>
+                    </div>
+                    <div class="pt-2">
+                        <a href="#encargos" class="inline-flex items-center gap-2 text-pastel-600 font-bold hover:text-pastel-700 transition-colors">
+                            <span>Hablemos sobre tu tarta</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN NUESTRA HISTORIA / FILOSOFÍA -->
+    <section id="historia" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Imagen en bloque de nuestra filosofía -->
+                <div class="relative order-2 md:order-1">
+                    <div class="bg-pastel-100 rounded-3xl p-3 border border-pastel-200 shadow-sm">
+                        <img src="https://i.imgur.com/KM8pDtn.jpeg" alt="Tarta personalizada de La Espléndida" class="rounded-2xl w-full h-[400px] object-contain bg-white">
+                    </div>
+                </div>
+
+                <div class="space-y-6 order-1 md:order-2">
+                    <span class="text-pastel-500 text-xs font-bold uppercase tracking-widest">Pasión por el Detalle</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+                        Repostera Creativa en El Ejido
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        En <strong class="text-pastel-600 font-semibold">La Espléndida</strong> creemos que cada evento merece un broche de oro único. Nos dedicamos a plasmar momentos inolvidables en tartas artesanales elaboradas al 100% bajo pedido.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Atendemos encargos personalizados en <strong>El Ejido</strong>, todo el <strong>Poniente Almeriense</strong> y <strong>Almería capital</strong>, cuidando la calidad de las materias primas y los acabados artísticos de cada pedido.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4 border-t border-pastel-100 text-center">
+                        <div class="px-2">
+                            <span class="font-serif text-3xl font-bold text-pastel-500 block">100%</span>
+                            <span class="text-xs text-gray-500">Artesanal & Personalizado</span>
+                        </div>
+                        <div class="px-2">
+                            <span class="font-serif text-3xl font-bold text-pastel-500 block">Frescura</span>
+                            <span class="text-xs text-gray-500">Horneado bajo pedido</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SOLICITUD DE PRESUPUESTO -->
+    <section id="encargos" class="py-20 bg-pastel-50 border-t border-pastel-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-pastel-100 overflow-hidden">
+                <div class="bg-pastel-500 p-8 text-white text-center">
+                    <h2 class="font-serif text-3xl font-bold">Solicita tu Presupuesto</h2>
+                    <p class="text-pastel-100 text-sm mt-2">Rellena los datos para generar tu consulta instantánea por WhatsApp</p>
+                </div>
+
+                <form id="quoteForm" class="p-8 sm:p-10 space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="clientName" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Tu Nombre *</label>
+                            <input type="text" id="clientName" required placeholder="Ej: María García" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm">
+                        </div>
+                        <div>
+                            <label for="clientPhone" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Teléfono de Contacto *</label>
+                            <input type="tel" id="clientPhone" required placeholder="Ej: 669164589" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="eventType" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Tipo de Celebración *</label>
+                            <select id="eventType" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm text-gray-700">
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="Boda">Boda / Aniversario</option>
+                                <option value="Cumpleaños Infantil">Cumpleaños Infantil</option>
+                                <option value="Cumpleaños Adulto">Cumpleaños Adulto</option>
+                                <option value="Bautizo / Baby Shower">Bautizo / Baby Shower</option>
+                                <option value="Primera Comunión">Primera Comunión</option>
+                                <option value="Evento Corporativo">Evento Corporativo</option>
+                                <option value="Otro">Otro Tipo de Fiesta</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="portions" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Nº de Raciones Aprox. *</label>
+                            <select id="portions" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm text-gray-700">
+                                <option value="" disabled selected>Personas / Raciones</option>
+                                <option value="8-10 raciones">8 - 10 personas</option>
+                                <option value="12-15 raciones">12 - 15 personas</option>
+                                <option value="20-25 raciones">20 - 25 personas</option>
+                                <option value="30-40 raciones">30 - 40 personas</option>
+                                <option value="Más de 50 raciones">Más de 50 personas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="eventDate" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Fecha del Evento *</label>
+                            <input type="date" id="eventDate" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm text-gray-700">
+                        </div>
+                        <div>
+                            <label for="preferredFlavor" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Sabor deseado (Opcional)</label>
+                            <input type="text" id="preferredFlavor" placeholder="Ej: Bizcocho Vainilla + Kinder" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="allergies" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Alergias Alimentarias a Tener en Cuenta</label>
+                        <textarea id="allergies" rows="2" placeholder="Indica únicamente si hay alergias (ej: frutos secos, proteína de leche, etc.)" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="details" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Detalles del Diseño / Temática</label>
+                        <textarea id="details" rows="3" placeholder="Cuéntanos la temática, colores deseados o la idea que tienes en mente..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm"></textarea>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <button type="submit" class="w-full sm:w-1/2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>WhatsApp</span>
+                        </button>
+                        <a href="tel:+34669164589" class="w-full sm:w-1/2 bg-pastel-50 hover:bg-pastel-100 text-pastel-600 border border-pastel-200 font-semibold py-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm shadow-sm">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Llamar</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER E INFORMACIÓN PRÁCTICA -->
+    <footer id="contacto" class="bg-pastel-chocolate text-white pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 border-b border-white/10 pb-12 text-center md:text-left justify-items-center md:justify-items-start">
+                
+                <!-- Columna Brand -->
+                <div class="space-y-4">
+                    <span class="font-serif text-3xl font-bold text-pastel-200 block">La Espléndida</span>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Pastelería artesanal especializada en tartas de autor a medida para eventos inolvidables en El Ejido y provincia de Almería.
+                    </p>
+                </div>
+
+                <!-- Columna Zona de Servicio -->
+                <div class="space-y-3">
+                    <h4 class="font-serif text-lg font-bold text-pastel-200">Ubicación y Cobertura</h4>
+                    <p class="text-gray-300 text-sm flex items-start justify-center md:justify-start gap-2">
+                        <i class="fa-solid fa-location-dot text-pastel-300 mt-1"></i>
+                        <span>El Ejido, Almería (Poniente Almeriense & Capital)</span>
+                    </p>
+                    <p class="text-gray-300 text-sm flex items-center justify-center md:justify-start gap-2">
+                        <i class="fa-solid fa-clock text-pastel-300"></i>
+                        <span>Encargos con mínimo 5-7 días de antelación</span>
+                    </p>
+                </div>
+
+                <!-- Columna Enlaces & Redes -->
+                <div class="space-y-4 w-full flex flex-col items-center md:items-start">
+                    <h4 class="font-serif text-lg font-bold text-pastel-200">Síguenos en Redes</h4>
+                    <div class="flex items-center justify-center md:justify-start w-full gap-4 pt-1">
+                        <a href="https://www.instagram.com/misdulcespararegalar?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-11 h-11 rounded-full bg-white/10 hover:bg-pastel-500 text-white flex items-center justify-center text-xl transition-all shadow-sm">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@misdulcespararegalar?_r=1&_t=ZN-9BIP9FxOYyZ" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="w-11 h-11 rounded-full bg-white/10 hover:bg-pastel-500 text-white flex items-center justify-center text-xl transition-all shadow-sm">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-xs text-gray-400">
+                <p>&copy; 2026 La Espléndida Pastelería. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT DINÁMICO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configurar fecha mínima en el formulario (mañana)
+            const dateInput = document.getElementById('eventDate');
+            if (dateInput) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const localDate = new Date(tomorrow.getTime() - tomorrow.getTimezoneOffset() * 60000)
+                    .toISOString().split('T')[0];
+                dateInput.min = localDate;
+            }
+
+            // Menú Móvil Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.toggle('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+                    if (menuIcon) {
+                        menuIcon.className = isHidden ? 'fa-solid fa-bars text-2xl' : 'fa-solid fa-xmark text-2xl';
+                    }
+                });
+
+                document.querySelectorAll('.mobile-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        if (menuIcon) menuIcon.className = 'fa-solid fa-bars text-2xl';
+                    });
+                });
+            }
+
+            // Lógica Formulario Completo Presupuesto
+            const quoteForm = document.getElementById('quoteForm');
+            if (quoteForm) {
+                quoteForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('clientName').value.trim();
+                    const phone = document.getElementById('clientPhone').value.trim();
+                    const event = document.getElementById('eventType').value;
+                    const portions = document.getElementById('portions').value;
+                    const date = document.getElementById('eventDate').value;
+                    const flavor = document.getElementById('preferredFlavor').value.trim() || 'Por definir';
+                    const allergies = document.getElementById('allergies').value.trim() || 'Ninguna indicada';
+                    const details = document.getElementById('details').value.trim() || 'Sin detalles adicionales';
+
+                    const message = 
+                        `*¡Hola La Espléndida! Solicitud de Presupuesto para Tarta*\n\n` +
+                        `👤 *Nombre:* ${name}\n` +
+                        `📞 *Teléfono:* ${phone}\n` +
+                        `🎉 *Evento:* ${event}\n` +
+                        `🎂 *Raciones:* ${portions}\n` +
+                        `📅 *Fecha:* ${date}\n` +
+                        `🍰 *Sabor deseado:* ${flavor}\n` +
+                        `⚠️ *Alergias:* ${allergies}\n` +
+                        `📝 *Detalles/Temática:* ${details}\n\n` +
+                        `Quedo a la espera de vuestra respuesta. ¡Muchas gracias!`;
+
+                    window.open(`https://wa.me/34669164589?text=${encodeURIComponent(message)}`, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
