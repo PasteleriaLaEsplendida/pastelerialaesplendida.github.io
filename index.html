@@ -14,8 +14,20 @@
     <meta property="og:description" content="Tartas personalizadas para todo tipo de celebraciones. El Ejido, Poniente de Almería y Almería capital.">
     <meta property="og:image" content="https://i.imgur.com/JX5djgg.jpeg">
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+    <!-- Favicon real con tu logo para Google -->
+    <link rel="icon" type="image/jpeg" href="img/Logo.jpeg">
+    <link rel="apple-touch-icon" href="img/Logo.jpeg">
+
+    <!-- Datos estructurados para Google (Para quitar "GitHub Pages documentation") -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "La Espléndida",
+      "alternateName": ["La Espléndida Pastelería", "Pastelería La Espléndida"],
+      "url": "https://pastelerialaesplendida.github.io/PasteleriaLaEsplendida/"
+    }
+    </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -189,7 +201,7 @@
             <!-- Grid de Tarjetas (Cards 1 al 6) -->
             <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Card 1 -->
+                <!-- Card 1 (Modificada a img/8.jpeg) -->
                 <div class="product-card bg-pastel-50/60 rounded-2xl p-4 border border-pastel-100 hover:shadow-xl transition-all duration-300 flex flex-col items-center">
                     <div class="w-full h-80 bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-pastel-100">
                         <img src="img/8.jpeg" alt="Tarta 1" loading="lazy" class="max-h-full max-w-full object-contain rounded-lg">
@@ -284,7 +296,7 @@
                     </ul>
                 </article>
 
-                <!-- 2. Rellenos (Icono intercambiado: ahora tiene el corazón) -->
+                <!-- 2. Rellenos (Icono de corazón) -->
                 <article class="bg-white p-7 rounded-3xl shadow-sm border border-pastel-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-2xl bg-pastel-100 flex items-center justify-center text-pastel-500 mb-5 mx-auto">
                         <i class="fa-solid fa-heart text-2xl"></i>
@@ -321,7 +333,7 @@
                     </ul>
                 </article>
 
-                <!-- 4. Tartas de la casa (Icono intercambiado: ahora tiene el icono fa-bowl-food) -->
+                <!-- 4. Tartas de la casa (Icono de cuenco/comida) -->
                 <article class="bg-white p-7 rounded-3xl shadow-sm border border-pastel-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-2xl bg-pastel-100 flex items-center justify-center text-pastel-500 mb-5 mx-auto">
                         <i class="fa-solid fa-bowl-food text-2xl"></i>
@@ -498,6 +510,7 @@
 
                     <div>
                         <label for="allergies" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Alergias Alimentarias a Tener en Cuenta</label>
+                        <!-- Palabra "únicamente" eliminada del placeholder -->
                         <textarea id="allergies" rows="2" placeholder="Indica si hay alergias (ej: frutos secos, proteína de leche, etc.)" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-pastel-500 focus:ring-2 focus:ring-pastel-100 outline-none transition-all text-sm"></textarea>
                     </div>
 
